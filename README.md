@@ -7,6 +7,20 @@
 
 Enabling LLMs to explore within a code sandbox (i.e., a virtual computer) to elicit general agentic intelligence.
 
+<p align="center">
+  <img src="https://llm-in-sandbox.github.io/assets/intro.png" alt="Experiment Results" width="800">
+</p>
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=Ols-XrOwIHo&t=1s">
+    <img src="https://img.youtube.com/vi/Ols-XrOwIHo/maxresdefault.jpg" alt="Demo Video" width="600">
+  </a>
+  <br>
+  <em>▶️ Click to watch the demo video</em>
+</p>
+
+
+
 **Features:**
 - 🌍 General-purpose: works beyond coding—scientific reasoning, long-cotext understanding, video production, travel planning, and more
 - 🐳 Isolated execution environment via Docker containers
