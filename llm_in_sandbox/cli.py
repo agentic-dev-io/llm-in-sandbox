@@ -117,14 +117,30 @@ def find_dockerfile() -> Optional[Path]:
 
 
 def ensure_docker_image(image_name: str, logger) -> bool:
-    """Check if Docker image exists. Return True if exists, False otherwise."""
+    """Check if Docker image exists. If not, try to pull it from Docker Hub."""
     client = docker.from_env()
     
     try:
         client.images.get(image_name)
         return True  # Image exists
     except docker.errors.ImageNotFound:
-        return False
+        # Try to pull from Docker Hub
+        console.print(Panel.fit(
+            f"[yellow]🐳 Docker image '{image_name}' not found locally.[/yellow]\n"
+            f"[dim]Attempting to pull from Docker Hub...[/dim]",
+            border_style="yellow",
+        ))
+        try:
+            logger.info(f"Pulling Docker image '{image_name}' from Docker Hub...")
+            client.images.pull(image_name)
+            console.print(Panel.fit(
+                f"[green]✅ Successfully pulled Docker image '{image_name}'![/green]",
+                border_style="green",
+            ))
+            return True
+        except docker.errors.APIError as e:
+            logger.warning(f"Failed to pull image: {e}")
+            return False
 
 
 def build_docker_image(
