@@ -56,6 +56,8 @@ Modify [Dockerfile](./docker/Dockerfile) and build your own image:
 ```bash
 llm-in-sandbox build
 # Then use: --docker_image llm-in-sandbox:v0.1
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/N4N71WOHZ3)
 ```
 
 </details>
